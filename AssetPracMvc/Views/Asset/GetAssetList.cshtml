@@ -1,0 +1,89 @@
+﻿@model IEnumerable<AssetPracMvc.Models.Asset>
+
+@{
+    ViewBag.Title = "GetAssetList";
+}
+
+<head>
+    @*<h2 class="mintitle">GetAsset</h2>*@
+    @Styles.Render("~/css/GetAsset.css")
+    <style>
+        th {
+            font-family: serif;
+            font-weight: 900;
+        }
+    </style>
+</head>
+
+
+<body>
+    @using (Html.BeginForm("GetAsset", "Asset", FormMethod.Get))
+    {
+        <div class="container">
+            <div class="row">
+                <div class="col-md-offset-1 col-md-10">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col col-sm-3 col-xs-12">
+                                    <h4 class="title" style="font-family:'Times New Roman';font-weight:1000;font-size:40px">Asset <span>List</span></h4>
+                                </div>
+                                <div class="col-sm-9 col-xs-12 text-right">
+                                    <div class="btn_group">
+                                        <input type="text" class="form-control" placeholder="Search">
+
+                                        <button class="btn btn-primary btn-lg" title="SortByAssetName"><i class="fa-solid fa-arrow-down-arrow-up"></i>@Html.ActionLink("SortName", "GetAsset", new { SortOrder = ViewBag.AssetName }, new { style = "color:white;font-weight:900;" })</button>
+                                        <button class="btn btn-primary btn-lg" title="SortByAssetType"><i class="fa-solid fa-arrow-down-arrow-up"></i> @Html.ActionLink("SortType ", "GetAsset", new { SortOrder = ViewBag.AssetType }, new { style = "color:white;font-weight:900;" })</button>
+                                        <button class="btn btn-primary btn-lg" title="Menu">@Html.ActionLink("Home", "Index", new { }, new { style = "color:white;font-weight:900;" })</button>
+                                        @*<button class="btn btn-default"><a href="@Url.Action("Index", "Asset")"><i class="fa-sharp fa-solid fa-eye"></i></a></button>*@
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+
+                                        <th>Asset Name</th>
+                                        <th>Asset Type</th>
+                                        <th>Asset SKU</th>
+                                        <th>Price</th>
+                                        <th>Count</th>
+                                        <th>Description</th>
+                                        <th>Vendor</th>
+                                        <th>Created On</th>
+
+                                    </tr>
+                                </thead>
+
+
+                                @foreach (var item in Model)
+                                {
+
+                                    <tr>
+
+                                        <td> @Html.DisplayFor(modelItem => item.AssetName)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.AssetType)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.AssetSku)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.Price)</td>
+                                        <td> @Html.DisplayFor(modelItem => item.CountAsset)</td>
+                                        <td> @Html.DisplayFor(modelItem => item.Description)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.Vendor)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.CreatedOn)</td>
+                                    </tr>
+                                    <br />
+
+                                }
+
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+
+</body>

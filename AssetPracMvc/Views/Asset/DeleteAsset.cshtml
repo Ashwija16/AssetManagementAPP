@@ -1,0 +1,112 @@
+﻿@model AssetPracMvc.Models.Asset
+
+@{
+    ViewBag.Title = "DeleteAsset";
+}
+
+<head>
+    <h2 class="mintitle">Delete Asset</h2>
+    @Styles.Render("~/css/DeleteAsset.css")
+</head>
+
+<body>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+        <section class="glass">
+            <div class="dashboards">
+                <form>
+                    <div class="link">
+                        <p>  Asset ID: </p>
+                        <h2 class="input">
+                            @Html.DisplayFor(model => model.AssetId)
+                        </h2>
+                    </div>
+
+                    <div class="link">
+                        <p>  Asset Name: </p>
+                        <h2 class="input">
+                            @Html.DisplayFor(model => model.AssetName)
+                        </h2>
+                    </div>
+
+                    <div class="link">
+                        <p>  Asset Type: </p>
+                        <h2 class="input">
+                            @Html.DisplayFor(model => model.AssetType)
+                        </h2>
+                    </div>
+
+                    <div class="link">
+                        <p>  Asset SKU: </p>
+                        <h2 class="input">
+                            @Html.DisplayFor(model => model.AssetSku)
+                        </h2>
+                    </div>
+
+                    <div class="link">
+                        <p> Price: </p>
+                        <h2 class="input">
+                            @Html.DisplayFor(model => model.Price)
+                        </h2>
+                    </div>
+
+                    <div class="link">
+                        <p>  Count Asset: </p>
+                        <h2 class="input">
+                            @Html.DisplayFor(model => model.CountAsset)
+                        </h2>
+                    </div>
+
+                    <div class="link">
+                        <p>  Description: </p>
+                        <h2 class="input">
+                            @Html.DisplayFor(model => model.Description)
+                        </h2>
+                    </div>
+
+                    <div class="link">
+                        <p>  Vendor: </p>
+                        <h2 class="input">
+                            @Html.DisplayFor(model => model.Vendor)
+                        </h2>
+                    </div>
+
+                    <div class="link">
+                        <p>  Created On: </p>
+                        <h2 class="input">
+                            @Html.DisplayFor(model => model.CreatedOn)
+                        </h2>
+                    </div>
+
+                    @*<div class="link">
+                            <p class="inner-header">
+                                <button><a href="@Url.Action("Index", "Asset")" class="View"><i class="fa-solid fa-backward"></i></a></button>
+                                <button><a href="@Url.Action("Getasset", "Asset")" class="View"><i class="fa-sharp fa-solid fa-eye"></i></a></button>
+                            </p>
+                        </div>*@
+                    @*<div class="col-sm-100 col-xs-100 text-center">*@
+                    <div class="btn_group">
+                        <button class="btn btn-default" title="View">Delete</button>
+                    </div>
+                    @*</div>*@
+
+                    @*<p class="">
+                            <button><input type="submit" value="Save" class="View" /></button>
+                        </p>*@
+
+
+                </form>
+            </div>
+        </section>
+    }
+</body>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+}

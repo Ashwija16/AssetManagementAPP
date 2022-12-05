@@ -1,0 +1,94 @@
+﻿@model IEnumerable<AssetPracMvc.Models.Asset>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<head>
+    @Styles.Render("~/css/Index.css")
+</head>
+
+<body>
+    <div class="hero2">
+        <!--This feels like the wrong solution here :/ -->
+        <fieldset class="hero2-text">
+            <legend class="border-text">&nbsp; be impressed</legend>
+            <h1>Asset Ninja</h1>
+            <p>Now you can manage the organization assets easily and efficiently!!</p>
+            @*<a href="#scroll2"><button>click me</button></a>*@
+            <a href="@Url.Action("GetAssetList", "Asset")" class="View"><button>View Asset</button></a>
+            <a href="@Url.Action("AddAsset", "Asset")" class="View"><button>Add Asset</button></a>
+            <a href="@Url.Action("EditAssets", "Asset")" class="View"><button>Edit Asset</button></a>
+            <a href="@Url.Action("DeleteAssets", "Asset")" class="View"><button>Delete Asset</button></a>
+        </fieldset>
+    </div>
+
+
+    @*<div id="scroll2" class="hero-container">
+            <div class="hero1">
+            </div>
+            <div class="hero-text">
+                <h1><b>Fun Site</b></h1>
+                <p>This is a fun site so it has a fun photo, rounded font and a rounded button!</p>
+                <a href="#scroll3"><button><b>CLICK ME</b></button></a>
+            </div>
+        </div>
+
+
+        <div id="scroll3" class="hero3">
+            <div class="hero3-text">
+                <h1><b>Inspiring Site</b></h1>
+                <p>Inspiring site strikes a balance between fun/soft and sharp/professional.</p>
+                <a href="#"><button><b>click me</b></button></a>
+            </div>
+        </div>*@
+    @*<div class="container">
+            <header class="header " id="header_id">
+                <div class="inner-header ">
+                    <button><a href="@Url.Action("Getasset", "Asset")" class="View"><i class="fa-sharp fa-solid fa-eye"></i>View Asset</a></button>
+                    <button><a href="@Url.Action("AddAsset", "Asset")" class="View"><i class="fa-solid fa-plus"></i>    Add Asset</a></button>
+                    <button> <a href="@Url.Action("EditAssets", "Asset")" class="View"><i class="fa-solid fa-pen-to-square"></i>   Edit Asset</a></button>
+                    <button>
+                        <a href="@Url.Action("DeleteAssets", "Asset")" class="View"><i class="fa-solid fa-trash"></i>   Delete Asset</a>
+                    </button>
+
+
+                </div>
+            </header>
+
+            <section class="section-main">
+                <div class="title">Asset Ninja</div>
+                <div class="subtitle">Now you can manage the organization assets easily and efficiently!!</div>
+
+
+            </section>
+            <div class="imgArea">
+                <span><img style="width: 500px; height: 450px; padding: 25px; margin-left: 300px;margin-bottom:100px" src="/css/Img4.png" /></span>
+            </div>
+
+        </div>*@
+
+</body>
+
+
+
+
+
+
+@*@section scripts
+{
+    <script>
+        $(function () {
+            var successMessage = '@TempData["SuccessMessage"]'
+            if (successMessage != '')
+                alertify
+                    .alert('Asset Ninja',successMessage, function () {
+
+                    });
+            });
+
+    </script>*@
+}

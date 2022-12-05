@@ -1,0 +1,71 @@
+﻿@model IEnumerable<AssetPracMvc.Models.Asset>
+
+@{
+    ViewBag.Title = "EditAssets";
+}
+
+<head>
+    @Styles.Render("~/css/EditAssets.css")
+    <div>
+
+        <p class="mintitle">Edit Asset</p>
+
+        @*<p class="inner-header">
+                <button><a href="@Url.Action("Index", "Asset")" class="btn btn-default"><i class="fa-solid fa-backward"></i> Menu</a></button>
+            </p>*@
+    </div>
+
+</head>
+
+<body>
+    @using (Html.BeginForm("EditAssets", "Asset", FormMethod.Get))
+    {
+        <div class="col-sm-9 col-xs-12 text-right">
+            <div class="btn_group">
+                <button class="btn btn-default" title="SortByAssetName">
+                    @Html.ActionLink("Asset Name", "EditAssets", new { SortOrder = ViewBag.AssetName })
+                </button>
+                <button class="btn btn-default" title="SortByAssetSku">
+                    @Html.ActionLink("Asset SKU", "EditAssets", new { SortOrder = ViewBag.AssetSku })
+                </button>
+                <button class="btn btn-default" title="Menu">
+                    @Html.ActionLink("Home", "Index")
+                </button>
+            </div>
+        </div>
+        @*<p>
+                @Html.ActionLink("Asset Name", "EditAssets",
+                      new { SortOrder = ViewBag.AssetName })
+            </p>
+            <p>
+                @Html.ActionLink("Asset SKU", "EditAssets",
+                      new { SortOrder = ViewBag.AssetSku })
+            </p>*@
+    }
+    @foreach (var item in Model)
+    {
+        <div class="cards">
+            <div class="card card-1">
+                <th class="card__title">SKU: @Html.DisplayFor(modelItem => item.AssetSku)</th><br />
+                <th class="card__title">Asset Name: @Html.DisplayFor(modelItem => item.AssetName)</th><br />
+                <th class="card__title">Asset Type: @Html.DisplayFor(modelItem => item.AssetType)</th><br />
+                <div class="btn_group">
+                    <button class="btn btn-default"><a href="@Url.Action("EditAsset", "Asset", new { id = item.AssetId })">Edit</a></button>
+                    <button class="btn btn-default"><a href="@Url.Action("GetAsset", "Asset")"><i class="fa-sharp fa-solid fa-eye"></i></a></button>
+                </div>
+
+
+                @*<p class="inner-header">
+                        <button><a href="@Url.Action("EditAsset", "Asset", new { id = item.AssetId })" class="View"><i class="fa-solid fa-pen-to-square"></i>   Edit </a></button>
+                    </p>*@
+            </div>
+        </div>
+
+    }
+
+
+
+</body>
+
+
+
